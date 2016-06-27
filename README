@@ -1,0 +1,14 @@
+     此程序练习了一下线程池的使用，客户端可以定义线程的个数，如果没任务那么线程处于睡眠状态，有任务了来了信号中断，利用回调函数执行用户操作，最后的可以销毁线程池，主要也就四个函数
+
+Boolean pthread_pool_create(int thnum);   //创建线程池
+Boolean pthread_pool_mission(void *(*fn)(void *arg),void *arg); //让线程池添加任务
+Boolean pthread_pool_end(void);          //销毁线程池
+void *fn(void *arg);                     //函数指针唤醒线程
+
+自己还生成了动态库，随时加载
+
+
+1. 进入主目录make，然后进入bin目录 举例：
+          ./test 5执行
+
+2. 在主目录中make clean，删除编译好的只执行文件和动态库
